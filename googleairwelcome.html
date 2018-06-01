@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+{% include "partial/links_air_welcome_msa" %}
+{% set gum = "http://services.google.com/fh/files/emails/" %}
+{% set img_logo =  gum ~ "googleair_logo_123x32.png"  %}
+{% set img_hero_us = gum ~ "cell_phones_airplane_1024x585.png" %}
+{% set img_hero_mx = gum ~ "cell_phones_airplane2_1024x585.png" %}
+
+
+{% macro spacer(height) %}
+<tr>
+  <td height="{{ height }}" style="mso-line-height-rule: exactly; height {{ height }}px"></td>
+</tr>
+{% endmacro %}
+
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- iOS link fix -->
+    <style>
+     .appleLink a {color: #666666 !important; text-decoration: none;}  
+    </style>
+  </head>
+  
+  
+  <body>
+  <section>
+  
+  
+    <!-- main container -->
+    <table width="480" class="container center">
+      <tr>
+       <td>
+        <table width="420" class="center">
+        <!-- logo -->
+          <tr>
+            <td class="masthead">
+              <img src="{{ img_logo }}" alt="{{ logo_alt }}" class="logo">
+            </td>
+          </tr>
+            
+            
+    <!-- body content -->
+    <!-- header image -->
+      <tr>
+        <td>
+         <table width="100%">
+          <tr>
+            <td align="center">
+    <!-- freemarker code for changing images based on region -->
+            <#if region?lower_case == 'us'>
+              <img src="{{ img_hero_us }}" alt"{{ hero_alt }}">
+            <#else>
+              <img src="{{ img_hero_mx }}" alt"{{ hero_alt }}">
+            </#if>
+            </td>
+          </tr>
+                <!-- copy content -->            
+          <tr>
+            <td>
+              <table class="white-box center">
+              {{ spacer(30) }}
+                <tr>
+                  <td class="copy headline" align="center">
+                  {{ headline }}
+                  </td>
+                </tr>
+                  {{ spacer(30) }}
+                <tr>
+                  <td class="copy greeting">
+                  {{ body_greeting }}
+                   </td>
+                </tr>
+                <tr>
+                  <td class="copy content">
+                  {{ body_content }}
+                  </td>
+                </tr>
+      <!-- cta button --> 
+                <tr>
+                  <td align="center">
+                  <!-- mso button hack -->
+                  <!--[if mso]> 
+                  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{linkCTA}" style="height:30px;v-text-anchor:middle;width:146px;" arcsize="10%" stroke="f" fillcolor="#00bcd4">
+                  <w:anchorlock/>
+                  <center>
+                  <![endif]-->
+                  <a href="${buttonCTA}" class="cta-button">{{ cta_button }}</a>
+                  <!--[if mso]>
+                  </center>
+                  </v:roundrect>
+                  <![endif]-->
+                  <!--<a href="${buttonCTA}" class="cta-button">{{ cta_button }}</a>-->  
+                   </td>
+                </tr>
+                <!-- sign off --> 
+                {{ spacer(32) }}
+                <tr>
+                  <td class="copy sign-off">
+                    {{ sign_off }}
+                  </td>
+                </tr>
+                    {{ spacer(30) }}
+               </table>
+              </td>
+            </tr>
+            <!-- footers -->
+            <tr>
+              <td>
+                <table>
+                  {{ spacer(32) }}
+                  <tr>
+                    <td class="copy footers appleLink">
+                    {{ footer_address }}
+                    </td>
+                  </tr>
+                    {{ spacer(15) }}
+                  <tr>
+                    <td class="copy footers">
+                    {{ footer_legal  }}
+                    </td>
+                  </tr>
+                    {{ spacer(27) }}
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <!-- gmail fix --> 
+    <table class="gmail-fix center" style="-premailer-align:center; -premailer-cellpadding:0; -premailer-cellspacing:0; -premailer-role:presentation; border-collapse:collapse; margin:0 auto; mso-table-lspace:0; mso-table-rspace:0" align="center" cellpadding="0" cellspacing="0" role="presentation">
+      <tr>
+        <td class="empty" style="box-sizing:border-box; width:80px" width="80">
+          <img src="https://services.google.com/fh/files/emails/spacer.png" alt="" style="border:0; display:block; height:1px; width:80px" height="1" width="80">
+        </td>
+            
+        <td class="empty" style="box-sizing:border-box; width:80px" width="80">
+          <img src="https://services.google.com/fh/files/emails/spacer.png" alt="" style="border:0; display:block; height:1px; width:80px" height="1" width="80">
+        </td>
+            
+        <td class="empty" style="box-sizing:border-box; width:80px" width="80">
+          <img src="https://services.google.com/fh/files/emails/spacer.png" alt="" style="border:0; display:block; height:1px; width:80px" height="1" width="80">
+        </td>
+      
+        <td class="empty" style="box-sizing:border-box; width:80px" width="80">
+          <img src="https://services.google.com/fh/files/emails/spacer.png" alt="" style="border:0; display:block; height:1px; width:80px" height="1" width="80">
+        </td>
+      
+        <td class="empty" style="box-sizing:border-box; width:80px" width="80">
+          <img src="https://services.google.com/fh/files/emails/spacer.png" alt="" style="border:0; display:block; height:1px; width:80px" height="1" width="80">
+        </td>
+      
+        <td class="empty" style="box-sizing:border-box; width:80px" width="80">
+          <img src="https://services.google.com/fh/files/emails/spacer.png" alt="" style="border:0; display:block; height:1px; width:80px" height="1" width="80">
+        </td>
+      
+        </tr>
+      </table>
+    </td>
+    </tr>
+   </table>
+  </section>
+ </body>
+</html>

@@ -1,0 +1,113 @@
+/***************************iOS media queries*********************************/
+
+// iphone 6,7,8,6s - this will affect all 3 apps
+@media only screen and (min-device-width: 374px) and (max-device-width: 376px) {
+    /* code */
+}
+
+
+
+// iphone 6,7,8,6s - this will affect all 3 apps ALT media query
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+    /* code */
+}
+
+
+
+// iphone X - this will affect all 3 apps
+@media screen and (max-device-width: 375px) and (max-device-height: 812px) {
+  /* code */
+}
+
+
+
+// iphone 6,7,8, X including 6s gmail and inbox specific - this must always be placed after the relative media query in the CSS
+@media only screen and (device-width: 375px) and (orientation: portrait) {
+  /* code
+     Note: this will set styles for both inbox and gmail unless gmail specific code is specified below
+  */
+  div > u + .body section {
+      /* any code in here will be specific for gmail only */
+  }
+}
+
+
+
+// iphone plus devices 6,7,8+ - this will affect all 3 apps
+@media only screen and (min-device-width: 413px) and (max-device-width: 415px) {
+  /* code */
+}
+
+
+/* With the new iOS update, iphone 7+ gmail and inbox is now reading 375px MQ instead of 414px MQ. 414 still works for 8+ but it's just 7+ that reads 375px instead of 414 */
+// iphone plus devices 6,7,8+ - this will affect all 3 apps ALT media query
+@media only screen and (device-width: 414px) and (max-width: 736px) {
+  /* code */
+}
+
+
+/* With the new iOS update, iphone 7+ gmail and inbox is now reading 375px MQ instead of 414px MQ. 414 still works for 8+ but it's just 7+ that reads 375px instead of 414 */
+// iphone 6+,7+,8+ gmail and inbox specific - this must always be placed after the relative media query in the CSS
+@media only screen and (device-width: 414px) and (orientation: portrait) {
+  /* code
+     Note: this will set styles for both inbox and gmail unless gmail specific code is specified below
+  */
+  div > u + .body section {
+   /* any code in here will be specific for gmail only */
+  }
+}
+/* Issue
+On iOS Gmail app, the font-size for footer copy (ex: address) gets bigger than it should be (ex: 14px instead of 10px). */
+
+
+Fix
+Use iOS Gmail media query
+@media only screen and (device-width:375px) and (orientation:portrait) {
+  //target the necessary classes here & reduce the font-size & line-height as needed
+}
+* This media query needs to come after the normal iOS one. To be safe, just put it at the bottom of your LESS code.
+** To get it to work on large screen iPhones, you'll probably need to use device-width:414px in the media query.
+
+
+/*************************** Android ****************************************/
+
+// Pixel, Pixel 2, Pixel XL, Pixel 2 XL, Nexus 5x, Nexus 6P
+@media only screen and (device-width: 412px) and (orientation: portrait) {
+  /* code
+  Note: this will set styles for both inbox and gmail unless gmail specific code is specified below
+  */
+  div > u + .body section {
+    /* any code in here will be specific for gmail only */
+  }
+}
+
+
+// Nexus 5, Samsung and Sony Xperia devices
+@media only screen and (device-width: 360px) and (orientation: portrait) {
+  /* code
+  Note: this will set styles for both inbox and gmail unless gmail specific code is specified below
+  */
+  div > u + .body section {
+    /* any code in here will be specific for gmail only */
+  }
+
+  /* Samsung Native App */
+  #MessageViewBody .yourclassnamehere {
+  }
+
+  // Nexus 5 uses device-width of 360px
+@media only screen and (device-width: 360px) and (orientation: portrait) {
+  
+  /* this will target the body-copy class for Gmail */
+  div > u + .body section {
+    .body-copy {
+      font-size: 16px; /* default styles (same as desktop) */
+    }
+  }
+
+  /* this will target the body-copy class for Inbox */
+  .body-copy {
+    font-size: 12px; 
+    /* additional font-size adjustment for a smaller Nexus 5 screen */
+  }
+}
